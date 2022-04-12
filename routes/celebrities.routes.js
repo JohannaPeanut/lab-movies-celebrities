@@ -24,12 +24,12 @@ router.post('/celebrities/create', (req, res, next) => {
     
     Celebrity.create({ name, occupation, catchPhrase })
     .then((celebrity) => {
-        res.render('celebrities/celebrities')
+        res.redirect('/celebrities')
         console.log("Name: "+ celebrity.name)
     })
     .catch((error)=> {
         console.log(error);
-        res.redirect('celebrities/new-celebrity')
+        res.redirect('/create')
         next(error)
     })
 })
