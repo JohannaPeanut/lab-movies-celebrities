@@ -1,6 +1,6 @@
 <h2>Edit Movie:</h2>
 
-<form action="/movies/create" method="POST">
+<form action="/movies/{{ movie._id }}/edit" method="POST">
     <label for="title" >Title:</label>
     <input id="title" name="title" type="text" placeholder="{{ movie.title}}" value="{{ movie.title}}">
     <label for="genre">Genre:</label>
@@ -10,10 +10,9 @@
     <input id="plot" name="plot" type="text" placeholder="{{ movie.plot}}" value="{{ movie.plot}}">
     <label for="cast">Cast:</label>
     <select name="cast" id="cast" multiple>
-        {{!-- {{#each celebrities}}
+        {{#each celebrities}}
         <option value="{{ _id }}">{{ name }}</option>
-        {{/each}} --}}
-        <option value="Frau">Diese eine</option>
+        {{/each}}
     </select>
-    <button type="submit">Create</button>
+    <button type="submit">Update</button>
 </form>
