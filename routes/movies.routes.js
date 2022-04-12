@@ -27,6 +27,15 @@ router.get('/movies/create', (req, res, next) => {
     
 })
 
+router.get('/movies/:id', (req, res, next) => {
+    const id = req.params.id;
+    console.log(id)
+    Movie.findById( id )
+    .then(movie => {
+        res.render('movies/movie-details', { movie })
+    })
+})
+
 router.post('/movies/create', (req, res, next) => {
     const { title, genre, plot, cast } = req.body;
     Movie.create({ title, genre, plot, cast })
